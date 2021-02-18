@@ -1,0 +1,189 @@
+algoritmo "Verificador de Distancia"
+// Disciplina : [Análise e desenvolvimento de sistemas]
+// Professor : Denilson
+// Descrição : Apresenta a distância entre o tutor e seu pet!
+// Autores(as) : Grupo ADS (1º Semestre)
+// Data atual : 22/10/2019
+//g=grau da cordenada
+//m=minutos
+//s=segundos
+//dez=dezena
+//uni=unidade
+//frac=fração
+//lat=latitude
+//lot=longitude
+//dla=diferença de latitude
+//dlo=diferença de longitude
+//dd=diferença de distância entre tutor e o pet
+//margem de erro de 6-7%
+var
+ dez1,dez2,dez3,dez4,uni1,uni2,uni3,uni4,frac1,frac2,frac3,frac4:real
+ g1,g2,g3,g4,m1,m2,m3,m4,s1,s2,s3,s4:real
+ dla1,dlo1,dla2,dlo2,lat1,lot1,lat2,lot2,dd :real
+ coordenada:inteiro
+ tutor, pet:caractere
+inicio
+6
+ escreva("Olá Tutor, digite seu nome! ")
+ leia(tutor)
+ escreva("Seja bem-vindo ",tutor," à area de verificação de distância do ")
+ escreval("seu querido pet.")
+ escreval("Digite o nome do seu Pet")
+ leia(pet)
+ escreval("Vamos verificar se ",Pet," está próximo?")
+ escreval("")
+ enquanto (coordenada <>1) e (coordenada <>2) faca
+ escreval("Escolha o tipo de cordenadas que você deseja")
+ escreval("Nº1 - Para coordenada do tipo decimal")
+ escreval("Nº2 - Para coordenada do tipo Grau")
+ escreva("Nº")
+ leia(coordenada)
+ escolha coordenada
+ caso 1
+ escreval("")
+ escreva("Você escolheu a opção Nº1, ")
+ escreval("conversão para coordenada do tipo decimal.")
+ escreva("Digite as coordenadsa ")
+ escreval("da Latitude de ",tutor," por favor: ")
+ leia(lat1)
+ escreva("Digite as coordenadas ")
+ escreval("da Longitude de ",tutor," por favor: ")
+ leia(lot1)
+ escreva("Digite as coordenadas de Latitude ")
+ escreval("do ",pet," por favor: ")
+ leia(lat2)
+ escreva("Digite as coordenadas ")
+ escreval("da Longitude de ",pet," por favor: ")
+ leia(lot2)
+7
+ dez1<-int(dez1)
+ uni1<-int((lat1-dez1)*60)
+ frac1<-int((((lat1-dez1)*60)-uni1)*60)
+ dez2<-int(dez2)
+ uni2<-int ((lot1-dez2)*60)
+ frac2<-int((((lot1-dez2)*60)-uni2)*60)
+ dez3<-int(dez3)
+ uni3<-int ((lat2-dez3)*60)
+ frac3<-int((((lat2-dez3)*60)-uni3)*60)
+ dez4<-int(dez4)
+ uni4<-int((lot2-dez4)*60)
+ frac4<-int((((lot2-dez4)*60)-uni4)*60)
+ g1<-dez1*60
+ g2<-dez2*60
+ g3<-dez3*60
+ g4<-dez4*60
+ m1<-uni1
+ m2<-uni2
+ m3<-uni3
+ m4<-uni4
+ s1<-frac1/60
+ s2<-frac2/60
+ s3<-frac3/60
+ s4<-frac4/60
+ dla1<-((g1+m1+s1)*1852)-((g3+m3+s3)*1852)
+ dlo1<-((g2+m2+s2)*1852)-((g4+m4+s4)*1852)
+ dd<-dlo1-dla1
+ se(dd>=20.00)entao
+ escreval("ATENÇÃO! ",pet," está à uma distância de",dd," metros.")
+ fimse
+ se(dd<=-20.00)entao
+ escreval("ATENÇÃO! ",pet," está à uma distância de",-dd,"
+metros.")
+8
+ fimse
+ se(dd>=2.00) e (dd<=19.99) entao
+ escreva("Ótima noticia, ",pet," está à uma distância ")
+ escreval("segura de",dd," metros.")
+ fimse
+ se(dd<=-2.00) e (dd>=-19.99)entao
+ escreva("Ótima noticia, ",pet," está à uma distância ")
+ escreval("segura de",-dd," metros.")
+ fimse
+ se(dd>=0.00) e (dd<=1.99)entao
+ escreva("Ótima noticia, ",pet," está à uma distância ")
+ escreval("segura de",dd," metro.")
+ fimse
+ se(dd<=-0.01) e (dd>=-1.99)entao
+ escreva("Ótima noticia, ",pet," está há uma distância ")
+ escreval("segura de",-dd," metro.")
+ fimse
+ //graus
+ caso 2
+ escreva("Você escolheu a opção Nº2 ")
+ escreval("conversão para coordenada do tipo Grau. ")
+ escreval("")
+ escreval("Digite o grau (º) da Latitude do Tutor por favor: ")
+ leia(g1)
+ escreval("Digite os minutos (min.) da Latitude do Tutor por favor: ")
+ leia(m1)
+ escreval("Digite os segundos (seg.) da Latitude do Tutor por favor: ")
+ leia(s1)
+ escreval("Digite o grau (º) da Longitude do Tutor por favor: ")
+ leia(g3)
+ escreval("Digite os minutos (min.) da Longitude do Tutor por favor: ")
+ leia(m3)
+9
+ escreval("Digite os segundos (seg.) da Longitude do Tutor por favor:
+")
+ leia(s3)
+ escreval("Digite o grau (º) da Latitude do Pet por favor: ")
+ leia(g2)
+ escreval("Digite os minutos (min.) da Latitude do Pet por favor: ")
+ leia(m2)
+ escreval("Digite os segundos (seg.) da Latitude do Pet por favor: ")
+ leia(s2)
+ escreval("Digite o grau (º) da Longitude do Pet por favor: ")
+ leia(g4)
+ escreval("Digite os minutos (min.) da Longitude do Pet por favor: ")
+ leia(m4)
+ escreval("Digite os segundos (seg.) da Longitude do Pet por favor: ")
+ leia(s4)
+ escreval("")
+ g1<-g1*60
+ g2<-g2*60
+ g3<-g3*60
+ g4<-g4*60
+ m1<-m1
+ m2<-m2
+ m3<-m3
+ m4<-m4
+ s1<-s1/60
+ s2<-s2/60
+ s3<-s3/60
+ s4<-s4/60
+ dla2<-((g1+m1+s1)*1852)-((g3+m3+s3)*1852)
+ dlo2<-((g2+m2+s2)*1852)-((g4+m4+s4)*1852)
+ dd<-dla2-dlo2
+ se(dd>=20.00)entao
+10
+ escreval("ATENÇÃO! ",pet," está à uma distância de",dd," metros.")
+ fimse
+ se(dd<=-20.00)entao
+ escreval("ATENÇÃO! ",pet," está à uma distância de",-dd,"
+metros.")
+ fimse
+ se(dd>=2.00) e (dd<=19.99) entao
+ escreva("Ótima noticia, ",pet," está à uma distância ")
+ escreval("segura de",dd," metros.")
+ fimse
+ se(dd<=-2.00) e (dd>=-19.99)entao
+ escreva("Ótima noticia, ",pet," está à uma distância segura ")
+ escreval("de",-dd," metros.")
+ fimse
+ se(dd>=0.00) e (dd<=1.99)entao
+ escreva("Ótima noticia, ",pet," está à uma distância segura ")
+ escreval("de",dd," metro.")
+ fimse
+ se(dd<=-0.01) e (dd>=-1.99)entao
+ escreva("Ótima noticia, ",pet," está há uma distância ")
+ escreval("segura de",-dd," metro.")
+ escreval("")
+ fimse
+ outrocaso
+ limpatela
+ escreva("Ops, digito inválido, tecle Nº1 para coordenadas Decimais ")
+ escreval("ou Nº2 para coordenadas em Graus. ")
+ escreval("")
+ fimescolha
+ fimenquanto
+fimalgoritmo
